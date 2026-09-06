@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy Birthday, Achal</title>
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Playfair+Display:ital,wght@0,600;1,400&family=Poppins:wght@300;400&display=swap" rel="stylesheet">
+  <style>
+    :root { --bg-color: #fdf0f0; --text-dark: #2b1810; --accent-pink: #d9777f; --font-cursive: 'Dancing Script', cursive; --font-serif: 'Playfair Display', serif; --font-sans: 'Poppins', sans-serif; }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background-color: var(--bg-color); color: var(--text-dark); font-family: var(--font-sans); text-align: center; overflow-x: hidden; position: relative; }
+    .petal { position: fixed; top: -10px; background-color: #fca5a5; border-radius: 15px 0 15px 0; opacity: 0.5; pointer-events: none; z-index: 1; animation: fall 8s linear infinite; }
+    @keyframes fall { 0% { transform: translateY(0) rotate(0deg); opacity: 0.7; } 100% { transform: translateY(100vh) rotate(360deg); opacity: 0; } }
+    .container { max-width: 500px; margin: 0 auto; padding: 40px 20px; position: relative; z-index: 2; }
+    .profile-container { position: relative; width: 220px; height: 220px; margin: 20px auto; }
+    .profile-img { width: 100%; height: 100%; border-radius: 50%; object-fit: cover; border: 8px solid rgba(217, 119, 127, 0.4); box-shadow: 0 10px 25px rgba(0,0,0,0.1); }
+    .subtitle-cursive { font-family: var(--font-cursive); font-size: 1.8rem; color: var(--accent-pink); margin-top: 15px; }
+    .main-title { font-family: var(--font-serif); font-size: 2.8rem; font-weight: 600; margin: 10px 0; }
+    .romantic-subtext { font-family: var(--font-cursive); font-size: 1.6rem; color: var(--accent-pink); margin-bottom: 25px; }
+    .letter-body { font-family: var(--font-sans); font-size: 0.95rem; line-height: 1.8; color: #4a3b32; margin-bottom: 30px; font-weight: 300; }
+    .scroll-hint { font-size: 0.8rem; letter-spacing: 2px; color: var(--accent-pink); text-transform: uppercase; margin: 30px 0 50px; }
+    .envelope-wrapper { background-color: #2b1810; padding: 60px 20px; margin-left: -20px; margin-right: -20px; }
+    .envelope { width: 100%; max-width: 300px; height: 180px; background-color: #fce7f3; margin: 0 auto; border-radius: 8px; position: relative; cursor: pointer; display: flex; flex-direction: column; align-items: center; justify-content: center; box-shadow: 0 8px 20px rgba(0,0,0,0.3); }
+    .seal-stamp { width: 50px; height: 50px; background-color: var(--accent-pink); border-radius: 50%; color: white; display: flex; align-items: center; justify-content: center; font-family: var(--font-cursive); font-size: 1.2rem; margin-bottom: 15px; }
+    .envelope-text { font-size: 0.75rem; letter-spacing: 2px; color: #6b7280; }
+    .divider { width: 60px; height: 2px; background-color: var(--accent-pink); margin: 30px auto; opacity: 0.5; }
+    .audio-btn { position: fixed; bottom: 25px; right: 25px; width: 55px; height: 55px; background-color: #2b1810; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; border: 2px dashed rgba(255,255,255,0.4); cursor: pointer; z-index: 10; }
+    .popup { position: fixed; inset: 0; background: rgba(43,24,16,0.85); backdrop-filter: blur(8px); z-index: 20; display: none; align-items: center; justify-content: center; padding: 20px; }
+    .popup.active { display: flex; }
+    .popup-card { background: #fff6f6; max-width: 500px; width: 100%; padding: 30px; border-radius: 16px; text-align: left; }
+  </style>
+</head>
+<body>
+  <audio id="bg-music" loop><source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_c8c8a73180.mp3" type="audio/mpeg"></audio>
+  <div class="audio-btn" onclick="toggleAudio()"><span id="audio-icon">⏸</span></div>
+  <div class="container">
+    <div class="profile-container"><img src="photo.jpeg" alt="Achal" class="profile-img"></div>
+    <div class="subtitle-cursive">Happy Birthday</div>
+    <h1 class="main-title">Achal</h1>
+    <div class="romantic-subtext">my best friend forever</div>
+    <p class="letter-body">Across every mile and through every phase, thank you for always being there as a true friend. Life is so much brighter with you around. Thank you for all the laughter, late-night talks, and unforgettable memories. Wishing you a wonderful birthday filled with happiness!<br><br><b style="color:#d9777f">- Created by Tushyannnn ✨</b></p>
+    <div class="scroll-hint">Scroll Down ↓</div>
+  </div>
+  <div class="envelope-wrapper">
+    <p style="font-family:'Dancing Script',cursive;color:#e8b77a;font-size:1.8rem;margin-bottom:10px">for your eyes only</p>
+    <h2 style="font-family:'Playfair Display',serif;color:#fff;font-size:2rem;margin-bottom:30px">A Letter, Just for You</h2>
+    <div class="envelope" onclick="openLetter()"><div class="seal-stamp">AS</div><div class="envelope-text">TAP TO OPEN</div></div>
+  </div>
+  <div class="container">
+    <div class="subtitle-cursive">our friendship in pictures</div>
+    <h2 class="main-title" style="font-size: 2.2rem;">Best Moments</h2>
+    <div class="divider"></div>
+    <p class="letter-body" style="text-align: center;">Here is to many more amazing memories together! 🎂💖</p>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:20px">
+      <img src="photo1.jpeg" style="width:100%;border-radius:12px;aspect-ratio:1;object-fit:cover">
+      <img src="photo2.jpeg" style="width:100%;border-radius:12px;aspect-ratio:1;object-fit:cover">
+      <img src="photo3.jpeg" style="width:100%;border-radius:12px;aspect-ratio:1;object-fit:cover">
+      <img src="photo4.jpeg" style="width:100%;border-radius:12px;aspect-ratio:1;object-fit:cover">
+    </div>
+  </div>
+  <div class="popup" id="letterPopup" onclick="if(event.target==this)closeLetter()">
+    <div class="popup-card">
+      <span style="float:right;font-size:24px;cursor:pointer" onclick="closeLetter()">×</span>
+      <h2 style="font-family:'Playfair Display',serif;font-size:1.8rem;margin-bottom:15px">My Dearest Achal,</h2>
+      <p style="font-size:.95rem;line-height:1.7;color:#4a3b32">My best friend,<br><br>Today you turn a year older, and I just want to say how grateful I am to have you. You are the kind of friend who stays - through distance, through mood swings, through everything.<br><br>You make ordinary days special. Your smile is my favorite notification. Thank you for being you.<br><br>On your birthday, I promise to always be there for you, just like you have been for me. Keep shining, keep smiling.<br><br><b>Happy Birthday, my best friend forever!</b><br><br>Always yours,<br><b>Tushyannnn 💖</b></p>
+    </div>
+  </div>
+  <script>
+    const music = document.getElementById('bg-music'); const audioIcon = document.getElementById('audio-icon'); let isPlaying = true;
+    function toggleAudio() { if (isPlaying) { music.pause(); audioIcon.textContent = '▶'; } else { music.play(); audioIcon.textContent = '⏸'; } isPlaying = !isPlaying; }
+    function openLetter() { document.getElementById('letterPopup').classList.add('active'); }
+    function closeLetter() { document.getElementById('letterPopup').classList.remove('active'); }
+    function createPetals() { for (let i = 0; i < 15; i++) { const petal = document.createElement('div'); petal.classList.add('petal'); petal.style.left = Math.random() * 100 + 'vw'; petal.style.width = Math.random() * 10 + 10 + 'px'; petal.style.height = petal.style.width; petal.style.animationDuration = Math.random() * 5 + 5 + 's'; petal.style.animationDelay = Math.random() * 5 + 's'; document.body.appendChild(petal); } }
+    createPetals();
+  </script>
+</body>
+</html>
